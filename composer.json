@@ -1,6 +1,15 @@
 {
     "name": "sundhell/decorator",
     "description": "Prepares your model layer for the view layer",
+    "keywords": ["decorator"],
+    "homepage": "https://github.com/sundhell/decorator",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Patrik Sundhäll",
+        "email": "patrik@sundhall.se"
+      }
+    ],
     "require": {
         "php": ">=5.3.0"
     },
