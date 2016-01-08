@@ -22,6 +22,20 @@ class BaseDecorator
     protected $fields;
 
     /**
+     * Loops through the $item array and sets all keys as properties
+     * on the class with it's given value.
+     *
+     * @param array $item
+     * @return void
+     **/
+    public function __construct($item) {
+        $this->fields = $item;
+        foreach($item as $key => $value) {
+            $this->{$key} = $value;
+        }
+    }
+
+    /**
      * Decorates the array it's given and returns the called class.
      *
      * @param array $item
@@ -44,19 +58,5 @@ class BaseDecorator
         return array_map(function($item) use ($class) {
             return new $class($item);
         }, $list);
-    }
-
-    /**
-     * Loops through the $item array and sets all keys as properties
-     * on the class with it's given value.
-     *
-     * @param array $item
-     * @return void
-     **/
-    protected function __construct($item) {
-        $this->fields = $item;
-        foreach($item as $key => $value) {
-            $this->{$key} = $value;
-        }
     }
 }
