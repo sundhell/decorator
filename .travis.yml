@@ -11,4 +11,9 @@ php:
 
 install: travis_retry composer install
 
-script: phpunit
+before_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+script:
+  - phpunit --coverage-clover coverage.clover
+after_script:
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
